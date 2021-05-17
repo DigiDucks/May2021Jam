@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerSwordAttack : MonoBehaviour
 {
+    int swordCharge = 0;
+
     Collider2D _col;
     SpriteRenderer _rend;
 
@@ -27,6 +29,28 @@ public class PlayerSwordAttack : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && canSwing)
         {
             StartCoroutine("SwingSword");
+        }
+        if(Input.GetButton("Fire1"))
+        {
+            if(swordCharge < 250)
+            {
+                swordCharge++;
+                Debug.Log("Charging... " + swordCharge);
+            }
+            else
+            {
+                Debug.Log("Charged");
+            }
+        }
+        if(Input.GetButtonUp("Fire1") && swordCharge == 250)
+        {
+            swordCharge = 0;
+            Debug.Log("Attacked");
+        }
+        else if(Input.GetButtonUp("Fire1"))
+        {
+            swordCharge = 0;
+            Debug.Log("Charge Lost");
         }
     }
 
