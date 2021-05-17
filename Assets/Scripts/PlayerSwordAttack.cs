@@ -8,6 +8,7 @@ public class PlayerSwordAttack : MonoBehaviour
 
     Collider2D _col;
     SpriteRenderer _rend;
+    Animator _anim;
 
     [SerializeField]
     bool canSwing = true;
@@ -19,6 +20,7 @@ public class PlayerSwordAttack : MonoBehaviour
     {
         _col = GetComponent<Collider2D>();
         _rend = GetComponent<SpriteRenderer>();
+        _anim = GetComponent<Animator>();
 
         _col.enabled = false;
         _rend.enabled = false;
@@ -28,7 +30,8 @@ public class PlayerSwordAttack : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1") && canSwing)
         {
-            StartCoroutine("SwingSword");
+            //StartCoroutine("SwingSword");
+            _anim.SetTrigger("SwingSword");
         }
         if(Input.GetButton("Fire1"))
         {
