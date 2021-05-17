@@ -47,6 +47,7 @@ public class PlayerSwordAttack : MonoBehaviour
         }
         if(Input.GetButtonUp("Fire1") && swordCharge == 250)
         {
+            _anim.SetTrigger("ChargeSwing");
             swordCharge = 0;
             Debug.Log("Attacked");
         }
