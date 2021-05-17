@@ -9,18 +9,21 @@ public class PlayerSwordAttack : MonoBehaviour
     Collider2D _col;
     SpriteRenderer _rend;
     Animator _anim;
+    
+    PlayerPowerManager power;
 
     [SerializeField]
     bool canSwing = true;
 
-    [SerializeField]
-    float swingCooldown = 0.25f;
+    //[SerializeField]
+    //float swingCooldown = 0.25f;
 
     void Start()
     {
         _col = GetComponent<Collider2D>();
         _rend = GetComponent<SpriteRenderer>();
         _anim = GetComponent<Animator>();
+        power = GetComponentInParent<PlayerPowerManager>();
 
         _col.enabled = false;
         _rend.enabled = false;
@@ -33,7 +36,7 @@ public class PlayerSwordAttack : MonoBehaviour
             //StartCoroutine("SwingSword");
             _anim.SetTrigger("SwingSword");
         }
-        if(Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && power.CheckPower() >= 3.0f)
         {
             if(swordCharge < 250)
             {
@@ -49,6 +52,7 @@ public class PlayerSwordAttack : MonoBehaviour
         {
             _anim.SetTrigger("ChargeSwing");
             swordCharge = 0;
+            power.AddPower(-3.0f);
             Debug.Log("Attacked");
         }
         else if(Input.GetButtonUp("Fire1"))
@@ -60,19 +64,19 @@ public class PlayerSwordAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-
+            power.AddPower(1.0f);
         }
     }
 
 
-    IEnumerator SwingSword()
-    {
-        _col.enabled = true;
-        _rend.enabled = true;
-        yield return new WaitForSeconds(swingCooldown);
-        _col.enabled = false;
-        _rend.enabled = false;
-    }
+    //IEnumerator SwingSword()
+    //{
+    //    _col.enabled = true;
+    //    _rend.enabled = true;
+    //    yield return new WaitForSeconds(swingCooldown);
+    //    _col.enabled = false;
+    //    _rend.enabled = false;
+    //}
 }

@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSwing: 1
-  swingCooldown: 0.25
 --- !u!95 &6849002369667870192
 Animator:
   serializedVersion: 3
@@ -282,7 +281,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6849002370687425221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,3 +323,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b9b8211f2f34c4ab78cca7be5ab615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerLevel: 5
+  maxPower: 10
