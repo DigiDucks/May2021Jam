@@ -23,4 +23,10 @@ public class ButtonBehaviorLevelSelect : MonoBehaviour
         SceneManager.LoadScene("Boss-1");
     }
 
+    // Main Menu
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
