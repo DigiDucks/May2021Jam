@@ -15,6 +15,14 @@ public class BossRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myRigidbody.rotation += 0.1f;   
+        //myRigidbody.rotation += 0.1f;   
+    }
+    public void Rotate()
+    {
+        myRigidbody.rotation += 0.5f;
+    }
+    public void Reverse()
+    {
+        myRigidbody.rotation -= 0.5f;
     }
 }

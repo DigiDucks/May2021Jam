@@ -10,15 +10,17 @@ public class Boss1Controller : MonoBehaviour
     [SerializeField] int health = 100;          // Health of the boss
     [SerializeField]Text healthText;            // Text of the health
 
+    int phase;
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         healthText.text = "Boss Health: " + health.ToString();
+        phase = 1;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(health <= 0)
         {
@@ -26,12 +28,29 @@ public class Boss1Controller : MonoBehaviour
         }
 
         healthText.text = "Boss Health: " + health.ToString();
+        StartCoroutine(PhaseChange());
+        if (phase == 0)
+        {
+            BossRotate[] weapons = FindObjectsOfType<BossRotate>();
+            weapons[0].Reverse();
+            weapons[1].Reverse();
+            //FindObjectOfType<BossRotate>().Reverse();
+        }
+        if (phase == 1)
+        {
+            BossRotate[] weapons = FindObjectsOfType<BossRotate>();
+            weapons[0].Rotate();
+            weapons[1].Rotate();
+            //FindObjectOfType<BossRotate>().Rotate();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.name.Contains("Sword"))
         if (collision.gameObject.CompareTag("Sword"))
         {
+                if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
             if(collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
             {
                 health -= 3;
@@ -39,6 +58,26 @@ public class Boss1Controller : MonoBehaviour
             else
             {
                 health--;
+            }
+        }
+    }
+    IEnumerator PhaseChange()
+    {
+        //yield return new WaitForSeconds(6f);
+        //phase = 1;
+        //yield return new WaitForSeconds(6f);
+        //phase = 0;
+        //yield return new WaitForSeconds(6f);
+        //phase  = 1
+        for(int i= 0; i<8;i++)
+        {
+            yield return new WaitForSeconds(6f);
+            if (phase == 1)
+            {
+                phase = 0;
+            } else
+            {
+                phase = 1;
             }
         }
     }
