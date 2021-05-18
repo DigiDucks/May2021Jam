@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSwordAttack : MonoBehaviour
 {
     int swordCharge = 0;
+    bool isCharged = false;
 
     [SerializeField]
     GameObject _parsys;
@@ -37,6 +38,7 @@ public class PlayerSwordAttack : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && canSwing)
         {
             //StartCoroutine("SwingSword");
+            isCharged = false;
             _anim.SetTrigger("SwingSword");
         }
         if (Input.GetButton("Fire1") && power.CheckPower() >= 3.0f)
@@ -57,6 +59,7 @@ public class PlayerSwordAttack : MonoBehaviour
         }
         if(Input.GetButtonUp("Fire1") && swordCharge == 250)
         {
+            isCharged = true;
             _parsys.SetActive(false);
             _anim.SetTrigger("ChargeSwing");
             swordCharge = 0;
@@ -79,6 +82,10 @@ public class PlayerSwordAttack : MonoBehaviour
         }
     }
 
+    public bool IsSwordCharged()
+    {
+        return isCharged;
+    }
 
     //IEnumerator SwingSword()
     //{
