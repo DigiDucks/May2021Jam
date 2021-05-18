@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int level)
     {
-        SceneManager.LoadScene("Boss");
-
-       
+        SceneManager.LoadScene(level); 
     }
 }
