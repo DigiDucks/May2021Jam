@@ -32,8 +32,14 @@ public class Boss1Controller : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("Sword"))
         {
-            //Debug.Log("sword hit");
-            health--;
+            if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
+            {
+                health -= 3;
+            }
+            else
+            {
+                health--;
+            }
         }
     }
 }
