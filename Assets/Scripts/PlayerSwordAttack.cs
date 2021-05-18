@@ -6,6 +6,9 @@ public class PlayerSwordAttack : MonoBehaviour
 {
     int swordCharge = 0;
 
+    [SerializeField]
+    GameObject _parsys;
+
     Collider2D _col;
     SpriteRenderer _rend;
     Animator _anim;
@@ -38,6 +41,10 @@ public class PlayerSwordAttack : MonoBehaviour
         }
         if (Input.GetButton("Fire1") && power.CheckPower() >= 3.0f)
         {
+            if(_parsys.activeSelf == false)
+            {
+                _parsys.SetActive(true);
+            }
             if(swordCharge < 250)
             {
                 swordCharge++;
@@ -50,6 +57,7 @@ public class PlayerSwordAttack : MonoBehaviour
         }
         if(Input.GetButtonUp("Fire1") && swordCharge == 250)
         {
+            _parsys.SetActive(false);
             _anim.SetTrigger("ChargeSwing");
             swordCharge = 0;
             power.AddPower(-3.0f);
@@ -57,6 +65,7 @@ public class PlayerSwordAttack : MonoBehaviour
         }
         else if(Input.GetButtonUp("Fire1"))
         {
+            _parsys.SetActive(false);
             swordCharge = 0;
             Debug.Log("Charge Lost");
         }
