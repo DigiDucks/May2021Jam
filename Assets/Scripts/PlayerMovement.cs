@@ -63,4 +63,11 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<PlayerLife>().PlayerLifeDecrease();
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Contains("Enemy"))
+        {
+            FindObjectOfType<PlayerLife>().PlayerLifeDecrease();
+        }
+    }
 }

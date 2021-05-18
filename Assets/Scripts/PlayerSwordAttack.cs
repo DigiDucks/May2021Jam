@@ -35,11 +35,11 @@ public class PlayerSwordAttack : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && canSwing)
+        if((Input.GetButtonDown("Fire1")||Input.GetKeyDown("space")) && canSwing)
         {
             _anim.SetTrigger("SwingSword");
         }
-        if (Input.GetButton("Fire1") && power.CheckPower() >= 3.0f)
+        if ((Input.GetButton("Fire1") || Input.GetKey("space")) && power.CheckPower() >= 3.0f)
         {
             if(_parsys.activeSelf == false)
             {
@@ -55,7 +55,7 @@ public class PlayerSwordAttack : MonoBehaviour
                 Debug.Log("Charged");
             }
         }
-        if(Input.GetButtonUp("Fire1") && swordCharge == 250)
+        if((Input.GetButtonUp("Fire1") || Input.GetKeyUp("space")) && swordCharge == 250)
         {
             _parsys.SetActive(false);
             StartCoroutine("ChargedSwing");
@@ -63,7 +63,7 @@ public class PlayerSwordAttack : MonoBehaviour
             power.AddPower(-3.0f);
             Debug.Log("Attacked");
         }
-        else if(Input.GetButtonUp("Fire1"))
+        else if((Input.GetButtonUp("Fire1") || Input.GetKeyUp("space")))
         {
             _parsys.SetActive(false);
             swordCharge = 0;
