@@ -30,9 +30,9 @@ public class Boss1Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Contains("Sword"))
+        if (collision.gameObject.CompareTag("Sword"))
         {
-            if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
+            if(collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
             {
                 health -= 3;
             }

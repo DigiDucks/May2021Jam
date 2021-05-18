@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 54202345}
   m_Layer: 0
   m_Name: Boss Bullet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1399,6 +1399,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6849002369667870203, guid: 3533cab3d5964754fb851bbd341bce79, type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 6849002370687425218, guid: 3533cab3d5964754fb851bbd341bce79, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1614,7 +1618,7 @@ GameObject:
   - component: {fileID: 2067299083}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

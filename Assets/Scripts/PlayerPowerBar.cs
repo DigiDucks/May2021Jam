@@ -12,6 +12,7 @@ public class PlayerPowerBar : MonoBehaviour
     }
     public void SetPowerLevel(float power)
     {
+        if(powerSlider)
         powerSlider.value = power;
     }
 }
