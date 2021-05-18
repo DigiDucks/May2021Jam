@@ -56,4 +56,11 @@ public class PlayerMovement : MonoBehaviour
 
         _body.MovePosition(position);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name.Contains("Boss"))
+        {
+            FindObjectOfType<PlayerLife>().PlayerLifeDecrease();
+        }
+    }
 }
