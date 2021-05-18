@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    int levelCounter = 0;
     public static GameManager instance;
 
     //Awake is always called before any Start functions
@@ -34,8 +33,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void LoadLevel(int level)
+    public void LoadLevel(int level)
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene("Boss");
+
+       
     }
 }

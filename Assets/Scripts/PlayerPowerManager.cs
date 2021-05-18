@@ -14,17 +14,15 @@ public class PlayerPowerManager : MonoBehaviour
     void Start()
     {
         powerBar = FindObjectOfType<PlayerPowerBar>();
+        powerBar.SetPowerLevel(powerLevel / maxPower);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        powerBar.SetPowerLevel(powerLevel/maxPower);
-    }
 
     public void AddPower(float power)
     {
         powerLevel += power;
+        powerLevel = Mathf.Clamp(powerLevel, 0.0f, maxPower);
+        powerBar.SetPowerLevel(powerLevel / maxPower);
     }
 
     public float CheckPower()
