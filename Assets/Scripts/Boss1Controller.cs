@@ -50,7 +50,7 @@ public class Boss1Controller : MonoBehaviour
         if(collision.gameObject.name.Contains("Sword"))
         if (collision.gameObject.CompareTag("Sword"))
         {
-                if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
+                //if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
             if(collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
             {
                 health -= 3;
