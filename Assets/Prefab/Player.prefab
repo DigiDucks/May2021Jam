@@ -5117,6 +5117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6849002370188301216}
   - component: {fileID: 6849002370188301217}
+  - component: {fileID: 497735844}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -5190,6 +5191,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &497735844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849002370188301231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a14aa819a8d9164584bf6d086ab887c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6849002370687425218
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,6 +5217,7 @@ GameObject:
   - component: {fileID: 6849002370687425223}
   - component: {fileID: 6849002370687425219}
   - component: {fileID: 168989164}
+  - component: {fileID: 8949407718610363803}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5294,6 +5308,20 @@ MonoBehaviour:
   powerLevel: 5
   maxPower: 10
 --- !u!114 &168989164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6849002370687425218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10da2f21fffca3542b85bb27964ecf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  healthText: {fileID: 0}
+--- !u!114 &8949407718610363803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
