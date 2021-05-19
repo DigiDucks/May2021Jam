@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 54202346}
   - component: {fileID: 54202345}
   m_Layer: 0
-  m_Name: Boss Bullet
+  m_Name: Boss Core
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,12 +200,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54202342}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0, z: -1}
-  m_LocalScale: {x: 0.72765267, y: 0.67608166, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3338, y: 2.95, z: -1}
+  m_LocalScale: {x: 2.5317361, y: 2.6543195, z: 1}
   m_Children: []
-  m_Father: {fileID: 1678616287}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &54202345
 Rigidbody2D:
@@ -835,11 +835,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageOnCollision: 1
   damageOnTrigger: 0
---- !u!4 &1678616287 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3765140579682326783, guid: b1f65592ec0171e44aabab495ef1b3d6, type: 3}
-  m_PrefabInstance: {fileID: 3765140580907607031}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1772587319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,6 +1022,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3765140579620310209, guid: b1f65592ec0171e44aabab495ef1b3d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765140579620310209, guid: b1f65592ec0171e44aabab495ef1b3d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.39
+      objectReference: {fileID: 0}
     - target: {fileID: 3765140579682326769, guid: b1f65592ec0171e44aabab495ef1b3d6, type: 3}
       propertyPath: m_Name
       value: Boss
