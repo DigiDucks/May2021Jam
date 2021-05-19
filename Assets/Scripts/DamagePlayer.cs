@@ -8,12 +8,15 @@ public class DamagePlayer : MonoBehaviour
     bool damageOnCollision = false;
     [SerializeField]
     bool damageOnTrigger = false;
+    [SerializeField]
+    ParticleSystem _particles;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (damageOnTrigger && collision.gameObject.GetComponent<PlayerLife>())
         {
             collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+            _particles.Play();
         }
     }
 
@@ -22,6 +25,9 @@ public class DamagePlayer : MonoBehaviour
         if (damageOnCollision && collision.gameObject.GetComponent<PlayerLife>())
         {
             collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+            _particles.Play();
         }
     }
+
+    
 }
