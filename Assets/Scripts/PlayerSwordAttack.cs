@@ -73,7 +73,7 @@ public class PlayerSwordAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !isCharged)
         {
             power.AddPower(1.0f);
         }
