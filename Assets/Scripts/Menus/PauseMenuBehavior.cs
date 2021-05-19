@@ -13,6 +13,8 @@ public class PauseMenuBehavior : MonoBehaviour
     private AudioSource source;
     private AudioClip clip;
 
+    [SerializeField] public float volume = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class PauseMenuBehavior : MonoBehaviour
         // Play sound if an audio component exists
         if (source)
         {
-            source.Play();
+            source.PlayOneShot(clip, volume);
         }
 
         // Swap visible UI elements
@@ -63,7 +65,7 @@ public class PauseMenuBehavior : MonoBehaviour
         // Play sound if an audio component exists
         if (source)
         {
-            source.Play();
+            source.PlayOneShot(clip, volume);
         }
 
         // Swap visible UI elements
@@ -81,7 +83,7 @@ public class PauseMenuBehavior : MonoBehaviour
     IEnumerator ReturnToMenu()
     {
         // Play sound
-        source.Play();
+        source.PlayOneShot(clip, volume);
 
         // WaitForSecondsRealtime ignores the timescale/pause
         yield return new WaitForSecondsRealtime(clip.length);

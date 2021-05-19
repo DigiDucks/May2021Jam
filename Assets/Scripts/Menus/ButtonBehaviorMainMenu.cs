@@ -8,6 +8,8 @@ public class ButtonBehaviorMainMenu : MonoBehaviour
     private AudioSource source;
     private AudioClip clip;
 
+    [SerializeField] public float volume = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class ButtonBehaviorMainMenu : MonoBehaviour
     IEnumerator PlayButton()
     {
         // Play sound
-        source.Play();
+        source.PlayOneShot(clip, volume);
         yield return new WaitForSeconds(clip.length);
         SceneManager.LoadScene("LevelSelect");
     }
@@ -41,7 +43,7 @@ public class ButtonBehaviorMainMenu : MonoBehaviour
     IEnumerator QuitButton()
     {
         // Play sound
-        source.Play();
+        source.PlayOneShot(clip, volume);
         yield return new WaitForSeconds(clip.length);
         Debug.Log("Exit Game");
         Application.Quit();
