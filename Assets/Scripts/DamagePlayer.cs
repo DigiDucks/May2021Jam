@@ -16,6 +16,7 @@ public class DamagePlayer : MonoBehaviour
         if (damageOnTrigger && collision.gameObject.GetComponent<PlayerLife>())
         {
             collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+            _particles.gameObject.transform.position = collision.gameObject.transform.position;
             _particles.Play();
         }
     }
@@ -25,6 +26,7 @@ public class DamagePlayer : MonoBehaviour
         if (damageOnCollision && collision.gameObject.GetComponent<PlayerLife>())
         {
             collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+            _particles.gameObject.transform.position = collision.gameObject.transform.position;
             _particles.Play();
         }
     }
