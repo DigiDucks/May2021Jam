@@ -19,6 +19,8 @@ public class PlayerSwordAttack : MonoBehaviour
     [SerializeField]
     bool canSwing = true;
 
+    bool canCharge = true;
+
     //[SerializeField]
     //float swingCooldown = 0.25f;
 
@@ -37,9 +39,12 @@ public class PlayerSwordAttack : MonoBehaviour
     {
         if((Input.GetButtonDown("Fire1")||Input.GetKeyDown("space")) && canSwing)
         {
-            _anim.SetTrigger("SwingSword");
+            if(canSwing)
+            {
+                StartCoroutine("SwingSword");
+            }
         }
-        if ((Input.GetButton("Fire1") || Input.GetKey("space")) && power.CheckPower() >= 3.0f)
+        if ((Input.GetButton("Fire1") || Input.GetKey("space")) && power.CheckPower() >= 3.0f && canCharge)
         {
             if(_parsys.activeSelf == false)
             {
@@ -87,17 +92,18 @@ public class PlayerSwordAttack : MonoBehaviour
     IEnumerator ChargedSwing()
     {
         isCharged = true;
+        canCharge = false;
         _anim.SetTrigger("ChargeSwing");
         yield return new WaitForSeconds(0.6f);
+        canCharge = true;
         isCharged = false;
     }
 
-    //IEnumerator SwingSword()
-    //{
-    //    _col.enabled = true;
-    //    _rend.enabled = true;
-    //    yield return new WaitForSeconds(swingCooldown);
-    //    _col.enabled = false;
-    //    _rend.enabled = false;
-    //}
+    IEnumerator SwingSword()
+    {
+        _anim.SetTrigger("SwingSword");
+        canSwing = false;
+        yield return new WaitForSeconds(0.5f);
+        canSwing = true;
+    }
 }
