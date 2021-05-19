@@ -47,8 +47,10 @@ public class Boss1Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.name.Contains("Sword"))
         if (collision.gameObject.CompareTag("Sword"))
         {
+            //if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
             if(collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
             {
                 health -= 3;
@@ -67,16 +69,24 @@ public class Boss1Controller : MonoBehaviour
         //phase = 0;
         //yield return new WaitForSeconds(6f);
         //phase  = 1
-        for(int i= 0; i<8;i++)
+        for(int i= 0; i<12;i++)
         {
-            yield return new WaitForSeconds(6f);
-            if (phase == 1)
-            {
-                phase = 0;
-            } else
-            {
-                phase = 1;
-            }
+            //yield return new WaitForSeconds(6f);
+            //if (phase == 1)
+            //{
+            //    phase = 0;
+            //} else
+            //{
+            //    phase = 1;
+            //}
+            yield return new WaitForSeconds(4f);
+            phase = 1;
+            yield return new WaitForSeconds(4f);
+            phase = 0;
+            yield return new WaitForSeconds(4f);
+            phase = 1;
+            yield return new WaitForSeconds(4f);
+
         }
     }
 }

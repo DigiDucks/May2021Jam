@@ -19,10 +19,10 @@ public class BossRotate : MonoBehaviour
     }
     public void Rotate()
     {
-        myRigidbody.rotation += 0.5f;
+        myRigidbody.rotation += 0.7f;
     }
     public void Reverse()
     {
-        myRigidbody.rotation -= 0.5f;
+        myRigidbody.rotation -= 0.7f;
     }
 }

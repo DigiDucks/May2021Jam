@@ -200,12 +200,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54202342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: 3.17, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.01, y: -0, z: -1}
+  m_LocalScale: {x: 0.72765267, y: 0.67608166, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1678616287}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &54202345
 Rigidbody2D:
@@ -835,6 +835,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageOnCollision: 1
   damageOnTrigger: 0
+--- !u!4 &1678616287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3765140579682326783, guid: b1f65592ec0171e44aabab495ef1b3d6, type: 3}
+  m_PrefabInstance: {fileID: 3765140580907607031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1772587319
 PrefabInstance:
   m_ObjectHideFlags: 0
