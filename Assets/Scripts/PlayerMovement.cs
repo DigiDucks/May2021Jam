@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D _body;
     Vector2 direction = Vector2.up;
 
+    [SerializeField]
+    Transform visTrans;
+
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
@@ -30,11 +33,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if(direction.x > 0f)
             {
-                _body.SetRotation(270f);
+                //_body.SetRotation(270f);
+                visTrans.localRotation = Quaternion.Euler(0, 0, 270f);
             }
             else
             {
-                _body.SetRotation(90f);
+                //_body.SetRotation(90f);
+                visTrans.localRotation = Quaternion.Euler(0, 0, 90f);
             }
         }
 
@@ -43,11 +48,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if(direction.y >0)
             {
-                _body.SetRotation(0f);
+                //_body.SetRotation(0f);
+                visTrans.localRotation = Quaternion.Euler(0, 0, 0f);
             }
             else
             {
-                _body.SetRotation(180f);
+               //_body.SetRotation(180f);
+                visTrans.localRotation = Quaternion.Euler(0, 0, 180f);
             }
         }
 
@@ -55,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         position.y += moveSpeed * direction.y * Time.deltaTime;
 
         _body.MovePosition(position);
+        
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
