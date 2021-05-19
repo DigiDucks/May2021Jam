@@ -26,6 +26,10 @@ public class Boss1Controller : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(health <= 50)
+        {
+            myRigidbody.rotation += 0.3f;
+        }
 
         healthText.text = "Boss Health: " + health.ToString();
         StartCoroutine(PhaseChange());
