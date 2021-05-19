@@ -63,13 +63,4 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<PlayerLife>().PlayerLifeDecrease();
         }
     }
-
-    // Since sword is part of player, this caused the sword to damage player when attacking
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag.Contains("Enemy"))
-    //    {
-    //        FindObjectOfType<PlayerLife>().PlayerLifeDecrease();
-    //    }
-    //}
 }
