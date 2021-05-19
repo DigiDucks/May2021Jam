@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Boss3Controller : MonoBehaviour
+{
+    private Rigidbody2D myRigidbody;// variable handles the rigid body of the enemy
+    [SerializeField] int health = 100;          // Health of the boss
+    [SerializeField] Text healthText;            // Text of the health
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        myRigidbody = GetComponent<Rigidbody2D>();
+        healthText.text = "Boss Health: " + health.ToString();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        //if (health <= 50)
+        //{
+        //    myRigidbody.rotation += 0.3f;
+        //}
+
+        healthText.text = "Boss Health: " + health.ToString();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Contains("Sword"))
+            if (collision.gameObject.CompareTag("Sword"))
+            {
+                //if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
+                if (collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
+                {
+                    health -= 3;
+                }
+                else
+                {
+                    health--;
+                }
+            }
+    }
+}
