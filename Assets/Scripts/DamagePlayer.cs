@@ -15,9 +15,13 @@ public class DamagePlayer : MonoBehaviour
     {
         if (damageOnTrigger && collision.gameObject.GetComponent<PlayerLife>())
         {
-            collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
-            _particles.gameObject.transform.position = collision.gameObject.transform.position;
-            _particles.Play();
+            if(collision.gameObject.GetComponent<PlayerLife>().CanPlayerBeHit())
+            {
+                StartCoroutine(InvFrames(collision));
+                collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+                _particles.gameObject.transform.position = collision.gameObject.transform.position;
+                _particles.Play();
+            }
         }
     }
 
@@ -25,11 +29,27 @@ public class DamagePlayer : MonoBehaviour
     {
         if (damageOnCollision && collision.gameObject.GetComponent<PlayerLife>())
         {
-            collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
-            _particles.gameObject.transform.position = collision.gameObject.transform.position;
-            _particles.Play();
+            if (collision.gameObject.GetComponent<PlayerLife>().CanPlayerBeHit())
+            {
+                StartCoroutine(InvFrames(collision));
+                collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+                _particles.gameObject.transform.position = collision.gameObject.transform.position;
+                _particles.Play();
+            }
         }
     }
 
-    
+    IEnumerator InvFrames(Collider2D collision)
+    {
+        collision.gameObject.GetComponent<PlayerLife>().PlayerHitStat(false);
+        yield return new WaitForSeconds(1.5f);
+        collision.gameObject.GetComponent<PlayerLife>().PlayerHitStat(true);
+    }
+
+    IEnumerator InvFrames(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<PlayerLife>().PlayerHitStat(false);
+        yield return new WaitForSeconds(1.5f);
+        collision.gameObject.GetComponent<PlayerLife>().PlayerHitStat(true);
+    }
 }
