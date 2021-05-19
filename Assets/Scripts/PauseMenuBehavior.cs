@@ -10,6 +10,9 @@ public class PauseMenuBehavior : MonoBehaviour
     private GameObject pauseButton;
     private GameObject pausePanel;
 
+    private AudioSource source;
+    private AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,17 +21,34 @@ public class PauseMenuBehavior : MonoBehaviour
         pauseButton = GameObject.Find("Pause Button");
         pausePanel = GameObject.Find("Backdrop");
 
+        // Set initial visibilities of UI elements
         pauseButton.SetActive(true);
         pausePanel.SetActive(false);
+
+        // Get the button click audio
+        source = GetComponent<AudioSource>();
+        if (source)
+            clip = source.clip;
+
+        // Make sure it plays even when the game is paused
+        source.ignoreListenerPause = true;
     }
     
     // Pause Button
     public void PauseGame()
     {
+        // Pauses audio in general
         Time.timeScale = 0;
         gameIsPaused = true;
         AudioListener.pause = true;
 
+        // Play sound if an audio component exists
+        if (source)
+        {
+            source.Play();
+        }
+
+        // Swap visible UI elements
         pauseButton.SetActive(false);
         pausePanel.SetActive(true);
     }
@@ -40,6 +60,13 @@ public class PauseMenuBehavior : MonoBehaviour
         gameIsPaused = false;
         AudioListener.pause = false;
 
+        // Play sound if an audio component exists
+        if (source)
+        {
+            source.Play();
+        }
+
+        // Swap visible UI elements
         pauseButton.SetActive(true);
         pausePanel.SetActive(false);
     }
@@ -47,8 +74,22 @@ public class PauseMenuBehavior : MonoBehaviour
     // Quit Button
     public void QuitGame()
     {
+        // Outsource sound logic
+        StartCoroutine("ReturnToMenu");
+    }
+
+    IEnumerator ReturnToMenu()
+    {
+        // Play sound
+        source.Play();
+
+        // WaitForSecondsRealtime ignores the timescale/pause
+        yield return new WaitForSecondsRealtime(clip.length);
+
+        // Load next scene
         SceneManager.LoadScene("MainMenu");
 
+        // Turn the audio back on
         Time.timeScale = 1;
         gameIsPaused = false;
         AudioListener.pause = false;
