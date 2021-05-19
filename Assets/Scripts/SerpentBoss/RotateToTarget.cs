@@ -13,12 +13,16 @@ public class RotateToTarget : MonoBehaviour
 
     Vector2 direction;
 
+    [SerializeField]
     Transform targetTransform;
 
     // Start is called before the first frame update
     void Start()
     {
-        SetTarget(FindObjectOfType<PlayerMovement>().transform);
+        if (targetTransform)
+            SetTarget(targetTransform);
+        else
+            SetTarget(FindObjectOfType<PlayerMovement>().transform);
     }
 
     // Update is called once per frame
