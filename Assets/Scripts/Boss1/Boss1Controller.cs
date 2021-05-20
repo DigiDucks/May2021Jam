@@ -27,9 +27,8 @@ public class Boss1Controller : MonoBehaviour
         {
             _particles.transform.position = gameObject.transform.position;
             _particles.Play();
-            GameManager end = FindObjectOfType<GameManager>();
-            end.OpenWin();
-
+            GameManager gm = FindObjectOfType<GameManager>();
+            gm.OpenWin();
             Destroy(gameObject);
         }
         if(health <= 50)

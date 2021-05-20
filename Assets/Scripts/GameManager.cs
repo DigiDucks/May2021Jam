@@ -73,7 +73,13 @@ public class GameManager : MonoBehaviour
 
     public void OpenWin()
     {
+        StartCoroutine(WaitForScreen());
+    }
+
+    IEnumerator WaitForScreen()
+    {
         WinScreenBehavior audio2 = FindObjectOfType<WinScreenBehavior>();
+        yield return new WaitForSeconds(2.0f);
         audio2.Win();
     }
 }
