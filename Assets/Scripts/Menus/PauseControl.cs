@@ -35,7 +35,7 @@ public class PauseControl : MonoBehaviour
         AudioListener.pause = false;
     }
 
-    protected IEnumerator ChangeSceneButtonClick(string scene, AudioSource source, AudioClip audioClip, float volume)
+    protected IEnumerator ChangeSceneButtonClick(int index, AudioSource source, AudioClip audioClip, float volume)
     {
         float waitTime = 0f;    // Coroutine length
 
@@ -53,7 +53,7 @@ public class PauseControl : MonoBehaviour
         yield return new WaitForSecondsRealtime(waitTime);
 
         // Move to next scene
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(index);
 
         // Turn the time/audio back on
         Resume();

@@ -18,7 +18,7 @@ public class WinScreenBehavior : PauseControl
     {
         // The LoseCanvas and it's children need to be active
         // so that the GameObject.Find() function works
-        winPanel = GameObject.Find("Backdrop");
+        winPanel = GameObject.Find("Backdrop2");
 
         // Set initial visibilities of UI elements
         winPanel.SetActive(false);
@@ -35,13 +35,13 @@ public class WinScreenBehavior : PauseControl
         source.ignoreListenerPause = true;
     }
 
-    public void Win(string sceneName)
+    public void Win()
     {
         // Pauses time/audio in general
         Pause();
 
         // Set the next scene for continuing players
-        nextScene = sceneName;
+        //nextScene = sceneName;
 
         // Turn on lose screen UI elements
         winPanel.SetActive(true);
@@ -50,15 +50,21 @@ public class WinScreenBehavior : PauseControl
     // Resume Button
     public void Continue()
     {
+        // The LoseCanvas and it's children need to be active
+        // so that the GameObject.Find() function works
+        winPanel = GameObject.Find("Backdrop2");
+
+        // Set initial visibilities of UI elements
+        winPanel.SetActive(false);
         // Gets the current scene and restarts it
-        StartCoroutine(ChangeSceneButtonClick(nextScene, source, clip, volume));
+        StartCoroutine(ChangeSceneButtonClick(SceneManager.GetActiveScene().buildIndex+1,source, clip, volume));
     }
 
     // Quit Button
     public void QuitGame()
     {
         // Return to main menu
-        StartCoroutine(ChangeSceneButtonClick("MainMenu", source, clip, volume));
+        StartCoroutine(ChangeSceneButtonClick(0, source, clip, volume));
     }
 
 }

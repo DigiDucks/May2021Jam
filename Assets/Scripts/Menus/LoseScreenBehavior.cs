@@ -17,7 +17,7 @@ public class LoseScreenBehavior : PauseControl
     {
         // The LoseCanvas and it's children need to be active
         // so that the GameObject.Find() function works
-        losePanel = GameObject.Find("Backdrop");
+        losePanel = GameObject.Find("Backdrop1");
 
         // Set initial visibilities of UI elements
         losePanel.SetActive(false);
@@ -44,14 +44,20 @@ public class LoseScreenBehavior : PauseControl
     public void RestartGame()
     {
         // Gets the current scene and restarts it
-        StartCoroutine(ChangeSceneButtonClick(SceneManager.GetActiveScene().name, source, clip, volume));
+        StartCoroutine(ChangeSceneButtonClick(SceneManager.GetActiveScene().buildIndex, source, clip, volume));
+        // The LoseCanvas and it's children need to be active
+        // so that the GameObject.Find() function works
+        losePanel = GameObject.Find("Backdrop1");
+
+        // Set initial visibilities of UI elements
+        losePanel.SetActive(false);
     }
 
     // Quit Button
     public void QuitGame()
     {
         // Return to main menu
-        StartCoroutine(ChangeSceneButtonClick("MainMenu", source, clip, volume));
+        StartCoroutine(ChangeSceneButtonClick(0, source, clip, volume));
     }
 
 }

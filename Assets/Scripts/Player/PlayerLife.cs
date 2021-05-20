@@ -40,4 +40,8 @@ public class PlayerLife : MonoBehaviour
     {
         return canBeHit;
     }
+    public int PlayerGetLife()
+    {
+        return health;
+    }
 }

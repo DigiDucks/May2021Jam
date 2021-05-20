@@ -83,7 +83,7 @@ public class PauseMenuBehavior : PauseControl
     public void QuitGame()
     {
         // Return to main menu
-        StartCoroutine(ChangeSceneButtonClick("MainMenu", source, clip, volume));
+        StartCoroutine(ChangeSceneButtonClick(0, source, clip, volume));
     }
 
 }
