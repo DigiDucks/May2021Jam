@@ -27,8 +27,10 @@ public class Boss4Controller : MonoBehaviour
             Destroy(gameObject);
         }
         timer += Time.deltaTime;
-        if(timer< 5.0f)
+        if (timer < 5.0f)
         {
+            Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+            swo.Idle();
             Renderer render = myRigidbody.GetComponent<Renderer>();
             render.material.color = Color.red;
             PlayerMovement player = FindObjectOfType<PlayerMovement>();
@@ -38,14 +40,23 @@ public class Boss4Controller : MonoBehaviour
 
             myRigidbody.velocity = direction * 2.0f;
         }
+        else if (timer > 5.0f && timer < 6.0f) 
+        {
+            Renderer render = myRigidbody.GetComponent<Renderer>();
+            render.material.color = new Color(0,0,1);
+            Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+            swo.Swing();
+        }
         else
         {
+            Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+            swo.Idle();
             myRigidbody.velocity = new Vector2(0, 0);
             Renderer render = myRigidbody.GetComponent<Renderer>();
             render.material.color = Color.green;
 
         }
-        if (timer > 8.0f)
+        if (timer > 9.0f)
         {
             timer = 0;
             Debug.Log("work");
