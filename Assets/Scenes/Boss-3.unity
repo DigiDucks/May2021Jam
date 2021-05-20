@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e1a4344295b934b90a04da813f3e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOnCollision: 0
+  damageOnCollision: 1
   damageOnTrigger: 0
   _particles: {fileID: 0}
 --- !u!50 &1009910820
@@ -971,7 +971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090282675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014611304, y: -2.566949, z: -25}
+  m_LocalPosition: {x: 0.014611304, y: -2.566949, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1400991454}
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 25
+  m_CameraDistance: 13
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e1a4344295b934b90a04da813f3e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOnCollision: 0
+  damageOnCollision: 1
   damageOnTrigger: 0
   _particles: {fileID: 0}
 --- !u!50 &1501942756
@@ -1691,7 +1691,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510196151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014611304, y: -2.566949, z: -25}
+  m_LocalPosition: {x: 0.014611304, y: -2.566949, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1710,6 +1710,7 @@ GameObject:
   - component: {fileID: 1523636153}
   - component: {fileID: 1523636152}
   - component: {fileID: 1523636151}
+  - component: {fileID: 1523636154}
   m_Layer: 0
   m_Name: Boss Core
   m_TagString: Enemy
@@ -1849,6 +1850,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1523636154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523636148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e1a4344295b934b90a04da813f3e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageOnCollision: 1
+  damageOnTrigger: 0
+  _particles: {fileID: 0}
 --- !u!1 &1551470099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,7 +2066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e1a4344295b934b90a04da813f3e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOnCollision: 0
+  damageOnCollision: 1
   damageOnTrigger: 0
   _particles: {fileID: 0}
 --- !u!50 &1615456795
@@ -2159,7 +2175,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8949407718610363803, guid: 3533cab3d5964754fb851bbd341bce79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3533cab3d5964754fb851bbd341bce79, type: 3}
 --- !u!1001 &1723960882
 PrefabInstance:
