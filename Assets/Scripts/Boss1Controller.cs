@@ -9,6 +9,7 @@ public class Boss1Controller : MonoBehaviour
     private Rigidbody2D myRigidbody;            // Rigidbody of the enemy
     [SerializeField] int health = 100;          // Health of the boss
     [SerializeField]Text healthText;            // Text of the health
+    [SerializeField] ParticleSystem _particles; // Boss Destroy Effect
 
     int phase;
     // Start is called before the first frame update
@@ -24,6 +25,8 @@ public class Boss1Controller : MonoBehaviour
     {
         if(health <= 0)
         {
+            _particles.transform.position = gameObject.transform.position;
+            _particles.Play();
             Destroy(gameObject);
         }
         if(health <= 50)

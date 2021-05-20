@@ -13,6 +13,8 @@ public class Boss3Controller : MonoBehaviour
     [SerializeField] float shotTimerMax = 3f;// Max time before shooting the player
     [SerializeField] float projectileSpeed = 5f;//speed of the projectile fired
 
+    [SerializeField] ParticleSystem _particles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class Boss3Controller : MonoBehaviour
     {
         if (health <= 0)
         {
+            _particles.transform.position = gameObject.transform.position;
+            _particles.Play();
             Destroy(gameObject);
         }
         if (health <= 70 && health>=31)

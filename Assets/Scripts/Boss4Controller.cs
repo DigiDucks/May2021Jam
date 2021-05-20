@@ -9,6 +9,7 @@ public class Boss4Controller : MonoBehaviour
     [SerializeField] int health = 100;          // Health of the boss
     [SerializeField] Text healthText;            // Text of the health
     float timer = 0.0f;
+    [SerializeField] ParticleSystem _particles;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class Boss4Controller : MonoBehaviour
     {
         if (health <= 0)
         {
+            _particles.transform.position = gameObject.transform.position;
+            _particles.Play();
             Destroy(gameObject);
         }
         timer += Time.deltaTime;

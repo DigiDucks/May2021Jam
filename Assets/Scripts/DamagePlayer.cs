@@ -13,7 +13,8 @@ public class DamagePlayer : MonoBehaviour
 
     private void Start()
     {
-        _particles = FindObjectOfType<ParticleSystem>();
+        ParticleSystem[] parsys = FindObjectsOfType<ParticleSystem>();
+        _particles = parsys[1];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

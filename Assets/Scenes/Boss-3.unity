@@ -123,6 +123,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &146270617
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 49.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703900, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065211065923703907, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+      propertyPath: m_Name
+      value: BossDestroyEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+--- !u!198 &351898793 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7065211065923703901, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+  m_PrefabInstance: {fileID: 146270617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &371704115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +1939,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5234193429559341915, guid: 22d3463ede94db648927f6ac9eb94bbb, type: 3}
   shotTimerMax: 3
   projectileSpeed: 6
+  _particles: {fileID: 351898793}
 --- !u!50 &1523636152
 Rigidbody2D:
   serializedVersion: 4
