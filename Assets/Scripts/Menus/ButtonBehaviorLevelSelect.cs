@@ -43,7 +43,7 @@ public class ButtonBehaviorLevelSelect : MonoBehaviour
     // Level 1
     public void Level1()
     {
-        StartCoroutine(ButtonClick("Level1"));
+        StartCoroutine(ButtonClick("Boss-1"));
     }
 
     // Level 2
@@ -55,7 +55,13 @@ public class ButtonBehaviorLevelSelect : MonoBehaviour
     // Level 3
     public void Level3()
     {
-        StartCoroutine(ButtonClick("Boss-1"));
+        StartCoroutine(ButtonClick("Boss-3"));
+    }
+
+    // Level 4
+    public void Level4()
+    {
+        StartCoroutine(ButtonClick("Boss-4"));
     }
 
     // Main Menu
