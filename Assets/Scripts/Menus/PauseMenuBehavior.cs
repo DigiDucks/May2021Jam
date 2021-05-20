@@ -33,7 +33,18 @@ public class PauseMenuBehavior : PauseControl
         // Make sure it plays even when the game is paused
         source.ignoreListenerPause = true;
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!gameIsPaused)
+            {
+                PauseGame();
+            }
+        }
+    }
+
     // Pause Button
     public void PauseGame()
     {
