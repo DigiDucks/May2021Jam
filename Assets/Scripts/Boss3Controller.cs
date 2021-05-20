@@ -63,18 +63,27 @@ public class Boss3Controller : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Contains("Sword"))
-            if (collision.gameObject.CompareTag("Sword"))
+        if (collision.gameObject.CompareTag("Sword"))
+        {
+            StartCoroutine(HitFlash());
+            if (collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
             {
-                //if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
-                if (collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
-                {
-                    health -= 3;
-                }
-                else
-                {
-                    health--;
-                }
+                health -= 3;
             }
+            else
+            {
+                health--;
+            }
+        }
+    }
+
+    IEnumerator HitFlash()
+    {
+        Color bossColor = gameObject.GetComponent<SpriteRenderer>().color;
+        bossColor.r = 0.5f;
+        gameObject.GetComponent<SpriteRenderer>().color = bossColor;
+        yield return new WaitForSeconds(0.4f);
+        bossColor.r = 1.0f;
+        gameObject.GetComponent<SpriteRenderer>().color = bossColor;
     }
 }

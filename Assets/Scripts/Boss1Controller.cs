@@ -51,11 +51,10 @@ public class Boss1Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name.Contains("Sword"))
         if (collision.gameObject.CompareTag("Sword"))
         {
-            //if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
-            if(collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
+            StartCoroutine(HitFlash());
+            if (collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
             {
                 health -= 3;
             }
@@ -92,5 +91,15 @@ public class Boss1Controller : MonoBehaviour
             yield return new WaitForSeconds(4f);
 
         }
+    }
+
+    IEnumerator HitFlash()
+    {
+        Color bossColor = gameObject.GetComponent<SpriteRenderer>().color;
+        bossColor.r = 0.5f;
+        gameObject.GetComponent<SpriteRenderer>().color = bossColor;
+        yield return new WaitForSeconds(0.4f);
+        bossColor.r = 1.0f;
+        gameObject.GetComponent<SpriteRenderer>().color = bossColor;
     }
 }
