@@ -1284,18 +1284,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
-      propertyPath: ShapeModule.m_Position.x
-      value: 0.0014152527
-      objectReference: {fileID: 0}
-    - target: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
-      propertyPath: ShapeModule.m_Position.y
-      value: 0.7733091
-      objectReference: {fileID: 0}
-    - target: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
-      propertyPath: ShapeModule.m_Position.z
-      value: -0.08713651
-      objectReference: {fileID: 0}
     - target: {fileID: 5870859239797931039, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
       propertyPath: m_Name
       value: HurtEffect

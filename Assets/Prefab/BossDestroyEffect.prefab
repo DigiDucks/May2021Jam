@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7065211065923703900}
   - component: {fileID: 7065211065923703901}
   - component: {fileID: 7065211065923703906}
+  - component: {fileID: 4262442659014789894}
   m_Layer: 0
   m_Name: BossDestroyEffect
   m_TagString: Untagged
@@ -4862,3 +4863,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &4262442659014789894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065211065923703907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eab5ebd4dfede042b7459d019f69f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Prefab: {fileID: 5969859719500558734, guid: b64c5ab703226bf4c92db54f5dccbf39, type: 3}

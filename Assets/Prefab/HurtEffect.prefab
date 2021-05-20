@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7905185307470449949}
   - component: {fileID: 5607235712679031757}
   - component: {fileID: 5872836085169045317}
+  - component: {fileID: 1086143115979058658}
   m_Layer: 0
   m_Name: HurtEffect
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5870859239797931039}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.9000002, y: -0.6999999, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 7.3999953, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -665,7 +666,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: -6.275195, y: 2.013539, z: 0.74055}
+    m_Position: {x: 0.0014152527, y: 0.7733091, z: -0.08713651}
     m_Rotation: {x: 304.99414, y: 10.054704, z: 171.53455}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -4862,3 +4863,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1086143115979058658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5870859239797931039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eab5ebd4dfede042b7459d019f69f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Prefab: {fileID: 5969859719500558734, guid: b64c5ab703226bf4c92db54f5dccbf39, type: 3}
