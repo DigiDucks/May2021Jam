@@ -4,22 +4,46 @@ using UnityEngine;
 
 public class PlayerSwordSounds : MonoBehaviour
 {
-    public AudioSource source;
+    public AudioSource sourceSword;     // For one-shot sound effects
+    public AudioSource sourcePlayer;    // For long-term charging sounds
 
-    // Only includes sounds for the sword by itself
+    // Just sounds for the sword by itself
     public AudioClip swingRegular;
     public AudioClip swingCharged;
 
-    [SerializeField] public float volume = 0.5f;
+    [SerializeField] float volume = 0.5f;
+
+    private bool isCharging;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        isCharging = false;
+    }
 
     // Public methods for playing the sound effects
     public void PlaySwingRegular()
     {
-        source.PlayOneShot(swingRegular, volume);
+        sourceSword.PlayOneShot(swingRegular, volume);
     }
 
     public void PlaySwingCharged()
     {
-        source.PlayOneShot(swingCharged, volume);
+        sourceSword.PlayOneShot(swingCharged, volume);
+    }
+
+    public void PlayChargeUp()
+    {
+        if (!isCharging)
+        {
+            isCharging = true;
+            sourcePlayer.Play();
+        }
+    }
+
+    public void StopChargeUp()
+    {
+        isCharging = false;
+        sourcePlayer.Stop();
     }
 }

@@ -51,6 +51,7 @@ public class PlayerSwordAttack : MonoBehaviour
             if(_parsys.activeSelf == false)
             {
                 _parsys.SetActive(true);
+                swordSounds.PlayChargeUp(); // Charge up sound effect
             }
             if(swordCharge < 180)
             {
@@ -65,6 +66,8 @@ public class PlayerSwordAttack : MonoBehaviour
         if((Input.GetButtonUp("Fire1") || Input.GetKeyUp("space")) && swordCharge == 180)
         {
             _parsys.SetActive(false);
+            swordSounds.StopChargeUp(); // End charge up sound effect
+
             StartCoroutine("ChargedSwing");
             swordCharge = 0;
             power.AddPower(-3.0f);
@@ -73,6 +76,7 @@ public class PlayerSwordAttack : MonoBehaviour
         else if((Input.GetButtonUp("Fire1") || Input.GetKeyUp("space")))
         {
             _parsys.SetActive(false);
+            swordSounds.StopChargeUp(); // End charge up sound effect
             swordCharge = 0;
             Debug.Log("Charge Lost");
         }
