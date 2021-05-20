@@ -11,11 +11,16 @@ public class DamagePlayer : MonoBehaviour
     [SerializeField]
     ParticleSystem _particles;
 
+    private void Start()
+    {
+        _particles = FindObjectOfType<ParticleSystem>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (damageOnTrigger && collision.gameObject.GetComponent<PlayerLife>())
         {
-            if(collision.gameObject.GetComponent<PlayerLife>().CanPlayerBeHit())
+            if (collision.gameObject.GetComponent<PlayerLife>().CanPlayerBeHit())
             {
                 StartCoroutine(InvFrames(collision));
                 collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();

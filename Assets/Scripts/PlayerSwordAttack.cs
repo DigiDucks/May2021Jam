@@ -52,7 +52,7 @@ public class PlayerSwordAttack : MonoBehaviour
             {
                 _parsys.SetActive(true);
             }
-            if(swordCharge < 175)
+            if(swordCharge < 180)
             {
                 swordCharge++;
                 Debug.Log("Charging... " + swordCharge);
@@ -62,7 +62,7 @@ public class PlayerSwordAttack : MonoBehaviour
                 Debug.Log("Charged");
             }
         }
-        if((Input.GetButtonUp("Fire1") || Input.GetKeyUp("space")) && swordCharge == 175)
+        if((Input.GetButtonUp("Fire1") || Input.GetKeyUp("space")) && swordCharge == 180)
         {
             _parsys.SetActive(false);
             StartCoroutine("ChargedSwing");
