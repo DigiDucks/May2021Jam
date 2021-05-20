@@ -15,6 +15,7 @@ public class PlayerSwordAttack : MonoBehaviour
     Animator _anim;
     
     PlayerPowerManager power;
+    PlayerSwordSounds swordSounds;  // Script for sound effects
 
     [SerializeField]
     bool canSwing = true;
@@ -30,6 +31,7 @@ public class PlayerSwordAttack : MonoBehaviour
         _rend = GetComponent<SpriteRenderer>();
         _anim = GetComponent<Animator>();
         power = GetComponentInParent<PlayerPowerManager>();
+        swordSounds = GetComponentInParent<PlayerSwordSounds>();
 
         _col.enabled = false;
         _rend.enabled = false;
@@ -93,6 +95,9 @@ public class PlayerSwordAttack : MonoBehaviour
     {
         isCharged = true;
         canCharge = false;
+
+        swordSounds.PlaySwingCharged(); // Sound effect
+
         _anim.SetTrigger("ChargeSwing");
         yield return new WaitForSeconds(0.6f);
         canCharge = true;
@@ -101,6 +106,8 @@ public class PlayerSwordAttack : MonoBehaviour
 
     IEnumerator SwingSword()
     {
+        swordSounds.PlaySwingRegular(); // Sound effect
+
         _anim.SetTrigger("SwingSword");
         canSwing = false;
         yield return new WaitForSeconds(0.5f);
