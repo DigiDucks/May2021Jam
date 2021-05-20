@@ -98,7 +98,9 @@ public class Boss4Controller : MonoBehaviour
                 Boss4Sword swo = FindObjectOfType<Boss4Sword>();
                 swo.Swing();
                 Renderer render = myRigidbody.GetComponent<Renderer>();
-                render.material.color = Color.blue;
+                Color currColor = Color.blue;
+                currColor.a = currA;
+                render.material.color = currColor;
                 PlayerMovement player = FindObjectOfType<PlayerMovement>();
 
                 Vector2 direction = player.transform.position - transform.position;
@@ -112,13 +114,17 @@ public class Boss4Controller : MonoBehaviour
                 swo.Idle();
                 myRigidbody.velocity = new Vector2(0, 0);
                 Renderer render = myRigidbody.GetComponent<Renderer>();
-                render.material.color = Color.green;
+                Color currColor = Color.green;
+                currColor.a = currA;
+                render.material.color = currColor;
 
             }
             if (timer >= 10.0f && timer < 11.0f)
             {
                 Renderer render = myRigidbody.GetComponent<Renderer>();
-                render.material.color = Color.yellow;
+                Color currColor = Color.yellow;
+                currColor.a = currA;
+                render.material.color = currColor;
             }
             if (timer > 11.0f)
             {
@@ -131,7 +137,9 @@ public class Boss4Controller : MonoBehaviour
             Boss4Sword swo = FindObjectOfType<Boss4Sword>();
             swo.Slow();
             Renderer render = myRigidbody.GetComponent<Renderer>();
-            render.material.color = Color.black;
+            Color currColor = Color.black;
+            currColor.a = currA;
+            render.material.color = currColor;
             myRigidbody.velocity = new Vector2(0, 0);
             myRigidbody.rotation += 0.1f;
         }
