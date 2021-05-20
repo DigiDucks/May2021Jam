@@ -14,7 +14,13 @@ public class DamagePlayer : MonoBehaviour
     private void Start()
     {
         ParticleSystem[] parsys = FindObjectsOfType<ParticleSystem>();
-        _particles = parsys[1];
+        foreach (ParticleSystem ps in parsys)
+        {
+            if(ps.gameObject.name.Contains("HurtEffect"))
+            {
+                _particles = ps;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

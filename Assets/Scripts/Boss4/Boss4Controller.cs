@@ -11,6 +11,7 @@ public class Boss4Controller : MonoBehaviour
     float timer = 0.0f;
     int phase = 1;
     [SerializeField] ParticleSystem _particles;
+    float currA = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,9 @@ public class Boss4Controller : MonoBehaviour
                 Boss4Sword swo = FindObjectOfType<Boss4Sword>();
                 swo.Idle();
                 Renderer render = myRigidbody.GetComponent<Renderer>();
-                render.material.color = Color.red;
+                Color currColor = Color.red;
+                currColor.a = currA;
+                render.material.color = currColor;
                 PlayerMovement player = FindObjectOfType<PlayerMovement>();
 
                 Vector2 direction = player.transform.position - transform.position;
@@ -56,7 +59,9 @@ public class Boss4Controller : MonoBehaviour
             else if (timer > 5.0f && timer < 6.0f)
             {
                 Renderer render = myRigidbody.GetComponent<Renderer>();
-                render.material.color = new Color(0, 0, 1);
+                Color currColor = Color.blue;
+                currColor.a = currA;
+                render.material.color = currColor;
                 Boss4Sword swo = FindObjectOfType<Boss4Sword>();
                 swo.Swing();
             }
@@ -66,13 +71,17 @@ public class Boss4Controller : MonoBehaviour
                 swo.Idle();
                 myRigidbody.velocity = new Vector2(0, 0);
                 Renderer render = myRigidbody.GetComponent<Renderer>();
-                render.material.color = Color.green;
+                Color currColor = Color.green;
+                currColor.a = currA;
+                render.material.color = currColor;
 
             }
             if(timer>=8.0f && timer<9.0f)
             {
                 Renderer render = myRigidbody.GetComponent<Renderer>();
-                render.material.color = Color.yellow;
+                Color currColor = Color.yellow;
+                currColor.a = currA;
+                render.material.color = currColor;
             }
             if (timer > 9.0f)
             {
@@ -134,18 +143,24 @@ public class Boss4Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Contains("Sword"))
-            if (collision.gameObject.CompareTag("Sword"))
+        if (collision.gameObject.CompareTag("Sword"))
+        {
+            StartCoroutine(HitFlash());
+            if (collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
             {
-                //if(FindObjectOfType<PlayerSwordAttack>().IsSwordCharged())
-                if (collision.gameObject.GetComponent<PlayerSwordAttack>().IsSwordCharged())
-                {
-                    health -= 3;
-                }
-                else
-                {
-                    health--;
-                }
+                health -= 3;
             }
+            else
+            {
+                health--;
+            }
+        }
+    }
+
+    IEnumerator HitFlash()
+    {
+        currA = 0.5f;
+        yield return new WaitForSeconds(0.4f);
+        currA = 1.0f;
     }
 }
