@@ -8,8 +8,6 @@ public class RotateToTarget : MonoBehaviour
     [SerializeField]
     float rotationSpeed = 10.0f;
 
-    [SerializeField]
-    float moveSpeed = 5.0f;
 
     Vector2 direction;
 
@@ -33,7 +31,6 @@ public class RotateToTarget : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-        transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, moveSpeed * Time.deltaTime);
     }
 
     public void SetTarget(Transform trans)

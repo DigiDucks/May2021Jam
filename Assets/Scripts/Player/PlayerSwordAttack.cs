@@ -55,7 +55,7 @@ public class PlayerSwordAttack : MonoBehaviour
             if(swordCharge < 180)
             {
                 swordCharge++;
-                Debug.Log("Charging... " + swordCharge);
+               // Debug.Log("Charging... " + swordCharge);
             }
             else
             {

@@ -48,6 +48,8 @@ public class SerpentBody : MonoBehaviour
                 bodyParts[i].gameObject.GetComponent<RotateToTarget>().SetTarget(bodyParts[i - 1]);
             }
         }
+
+        ResetPos();
     }
 
     // Update is called once per frame
@@ -71,6 +73,41 @@ public class SerpentBody : MonoBehaviour
             bodyParts[i - 1].position = seg;
         }
 
+        lineRend.SetPositions(segmentPoses);
+    }
+
+   public void ResetPos()
+    {
+        transform.localPosition = Vector3.zero;
+        segmentPoses[0] = targetDir.position;
+
+        for (int i = 1; i < segmentPoses.Length; ++i)
+        {
+            segmentPoses[i] = segmentPoses[i - 1] +
+                (segmentPoses[i] - segmentPoses[i - 1]).normalized * targetDist;
+        }
+        for (int i = 1; i <= bodyParts.Length; ++i)
+        {
+            Vector3 seg = segmentPoses[(i * 2) - 1];
+            bodyParts[i - 1].position = seg;
+        }
+        lineRend.SetPositions(segmentPoses);
+    }
+
+   public void Coil()
+    {
+        transform.localPosition = Vector3.zero;
+        segmentPoses[0] = targetDir.position;
+
+        for (int i = 1; i < segmentPoses.Length; ++i)
+        {
+            segmentPoses[i] = segmentPoses[0];
+        }
+        for (int i = 1; i <= bodyParts.Length; ++i)
+        {
+            Vector3 seg = segmentPoses[(i * 2) - 1];
+            bodyParts[i - 1].position = seg;
+        }
         lineRend.SetPositions(segmentPoses);
     }
 }
