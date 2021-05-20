@@ -25,6 +25,13 @@ public class ButtonBehaviorMainMenu : MonoBehaviour
         StartCoroutine("PlayButton");
     }
 
+    // Credits Button
+    public void OnCreditsButtonPress()
+    {
+        // Outsource sound logic
+        StartCoroutine("CreditsButton");
+    }
+
     // Quit Button
     public void OnQuitButtonPress()
     {
@@ -37,7 +44,19 @@ public class ButtonBehaviorMainMenu : MonoBehaviour
         // Play sound
         source.PlayOneShot(clip, volume);
         yield return new WaitForSeconds(clip.length);
+
+        // Next scene
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    IEnumerator CreditsButton()
+    {
+        // Play sound
+        source.PlayOneShot(clip, volume);
+        yield return new WaitForSeconds(clip.length);
+
+        // Next scene
+        SceneManager.LoadScene("Credits");
     }
 
     IEnumerator QuitButton()
@@ -45,6 +64,8 @@ public class ButtonBehaviorMainMenu : MonoBehaviour
         // Play sound
         source.PlayOneShot(clip, volume);
         yield return new WaitForSeconds(clip.length);
+
+        // Exit application
         Debug.Log("Exit Game");
         Application.Quit();
     }
