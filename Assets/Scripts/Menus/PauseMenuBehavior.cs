@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuBehavior : MonoBehaviour
+public class PauseMenuBehavior : PauseControl
 {
-    public static bool gameIsPaused;
-
     private GameObject pauseButton;
     private GameObject pausePanel;
 
@@ -39,10 +37,8 @@ public class PauseMenuBehavior : MonoBehaviour
     // Pause Button
     public void PauseGame()
     {
-        // Pauses audio in general
-        Time.timeScale = 0;
-        gameIsPaused = true;
-        AudioListener.pause = true;
+        // Pause time/audio in general
+        Pause();
 
         // Play sound if an audio component exists
         if (source)
@@ -58,9 +54,8 @@ public class PauseMenuBehavior : MonoBehaviour
     // Resume Button
     public void ResumeGame()
     {
-        Time.timeScale = 1;
-        gameIsPaused = false;
-        AudioListener.pause = false;
+        // Resume time/audio in general
+        Resume();
 
         // Play sound if an audio component exists
         if (source)
@@ -76,24 +71,8 @@ public class PauseMenuBehavior : MonoBehaviour
     // Quit Button
     public void QuitGame()
     {
-        // Outsource sound logic
-        StartCoroutine("ReturnToMenu");
+        // Return to main menu
+        StartCoroutine(ChangeSceneButtonClick("MainMenu", source, clip, volume));
     }
 
-    IEnumerator ReturnToMenu()
-    {
-        // Play sound
-        source.PlayOneShot(clip, volume);
-
-        // WaitForSecondsRealtime ignores the timescale/pause
-        yield return new WaitForSecondsRealtime(clip.length);
-
-        // Load next scene
-        SceneManager.LoadScene("MainMenu");
-
-        // Turn the audio back on
-        Time.timeScale = 1;
-        gameIsPaused = false;
-        AudioListener.pause = false;
-    }
 }
