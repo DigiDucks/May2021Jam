@@ -34,10 +34,19 @@ public class Boss4Sword : MonoBehaviour
         anim.ResetTrigger("SwingSword");
         Debug.Log("Stop");
     }
+    public void Slow()
+    {
+        StartCoroutine("SlowSwing");
+    }
     public IEnumerator SwingSword()
     {
         anim.SetTrigger("SwingSword");
         yield return new WaitForSeconds(0.5f);
         //anim.SetTrigger("SwingSword");
+    }
+    public IEnumerator SlowSwing()
+    {
+        anim.SetTrigger("SlowSwing");
+        yield return new WaitForSeconds(0.5f);
     }
 }

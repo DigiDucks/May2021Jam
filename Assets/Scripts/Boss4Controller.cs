@@ -9,6 +9,7 @@ public class Boss4Controller : MonoBehaviour
     [SerializeField] int health = 100;          // Health of the boss
     [SerializeField] Text healthText;            // Text of the health
     float timer = 0.0f;
+    int phase = 1;
     [SerializeField] ParticleSystem _particles;
 
     // Start is called before the first frame update
@@ -29,41 +30,103 @@ public class Boss4Controller : MonoBehaviour
             _particles.Play();
             Destroy(gameObject);
         }
-        timer += Time.deltaTime;
-        if (timer < 5.0f)
+        if(health <=67)
         {
-            Boss4Sword swo = FindObjectOfType<Boss4Sword>();
-            swo.Idle();
-            Renderer render = myRigidbody.GetComponent<Renderer>();
-            render.material.color = Color.red;
-            PlayerMovement player = FindObjectOfType<PlayerMovement>();
-
-            Vector2 direction = player.transform.position - transform.position;
-            direction.Normalize();
-
-            myRigidbody.velocity = direction * 2.0f;
+            phase = 2;
         }
-        else if (timer > 5.0f && timer < 6.0f) 
+        if(health <= 33)
         {
-            Renderer render = myRigidbody.GetComponent<Renderer>();
-            render.material.color = new Color(0,0,1);
-            Boss4Sword swo = FindObjectOfType<Boss4Sword>();
-            swo.Swing();
+            phase = 3;
+        }
+        if (phase == 1)
+        {
+            if (timer < 5.0f)
+            {
+                Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+                swo.Idle();
+                Renderer render = myRigidbody.GetComponent<Renderer>();
+                render.material.color = Color.red;
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+
+                Vector2 direction = player.transform.position - transform.position;
+                direction.Normalize();
+
+                myRigidbody.velocity = direction * 2.0f;
+            }
+            else if (timer > 5.0f && timer < 6.0f)
+            {
+                Renderer render = myRigidbody.GetComponent<Renderer>();
+                render.material.color = new Color(0, 0, 1);
+                Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+                swo.Swing();
+            }
+            else
+            {
+                Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+                swo.Idle();
+                myRigidbody.velocity = new Vector2(0, 0);
+                Renderer render = myRigidbody.GetComponent<Renderer>();
+                render.material.color = Color.green;
+
+            }
+            if(timer>=8.0f && timer<9.0f)
+            {
+                Renderer render = myRigidbody.GetComponent<Renderer>();
+                render.material.color = Color.yellow;
+            }
+            if (timer > 9.0f)
+            {
+                timer = 0;
+                Debug.Log("work");
+            }
+        }
+        else if(phase == 2)
+        {
+            if (timer < 5.0f)
+            {
+                Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+                swo.Swing();
+                Renderer render = myRigidbody.GetComponent<Renderer>();
+                render.material.color = Color.blue;
+                PlayerMovement player = FindObjectOfType<PlayerMovement>();
+
+                Vector2 direction = player.transform.position - transform.position;
+                direction.Normalize();
+
+                myRigidbody.velocity = direction * 3.0f;
+            }
+            else
+            {
+                Boss4Sword swo = FindObjectOfType<Boss4Sword>();
+                swo.Idle();
+                myRigidbody.velocity = new Vector2(0, 0);
+                Renderer render = myRigidbody.GetComponent<Renderer>();
+                render.material.color = Color.green;
+
+            }
+            if (timer >= 10.0f && timer < 11.0f)
+            {
+                Renderer render = myRigidbody.GetComponent<Renderer>();
+                render.material.color = Color.yellow;
+            }
+            if (timer > 11.0f)
+            {
+                timer = 0;
+
+            }
         }
         else
         {
             Boss4Sword swo = FindObjectOfType<Boss4Sword>();
-            swo.Idle();
-            myRigidbody.velocity = new Vector2(0, 0);
+            swo.Slow();
             Renderer render = myRigidbody.GetComponent<Renderer>();
-            render.material.color = Color.green;
+            render.material.color = Color.black;
+            myRigidbody.velocity = new Vector2(0, 0);
+            myRigidbody.rotation += 0.1f;
+        }
+        timer += Time.deltaTime;
 
-        }
-        if (timer > 9.0f)
-        {
-            timer = 0;
-            Debug.Log("work");
-        }
+       
         healthText.text = "Boss Health: " + health.ToString();
         
 

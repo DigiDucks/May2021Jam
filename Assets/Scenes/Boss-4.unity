@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthText: {fileID: 1908921361}
-  _particles: {fileID: 0}
+  _particles: {fileID: 1860505484}
 --- !u!50 &1316858403
 Rigidbody2D:
   serializedVersion: 4
@@ -1611,6 +1611,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!198 &1860505484 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7065211065923703901, guid: 4db1d38ef506560479dd9e821dcc3211, type: 3}
+  m_PrefabInstance: {fileID: 1474031365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1908921359
 GameObject:
   m_ObjectHideFlags: 0
