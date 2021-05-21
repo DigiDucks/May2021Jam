@@ -49,7 +49,7 @@ public class ButtonBehaviorLevelSelect : MonoBehaviour
     // Level 2
     public void Level2()
     {
-        StartCoroutine(ButtonClick("Level2"));
+        StartCoroutine(ButtonClick("SerpentBoss"));
     }
 
     // Level 3
