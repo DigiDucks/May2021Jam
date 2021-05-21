@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SerpentHealth : MonoBehaviour
 {
+    [SerializeField] ParticleSystem _particles;
     SerpentHitBox[] health;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class SerpentHealth : MonoBehaviour
             if (!box.hit)
                 return;
         }
+        _particles.transform.position = gameObject.transform.position;
+        _particles.Play();
         FindObjectOfType<SerpentBehaviourManager>().SetState(SerpentBehaviourManager.SerpentState.Wait);
         GameManager.instance.OpenWin();
     }
