@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 403212414580658296}
   - component: {fileID: 403212414580658297}
   - component: {fileID: 403212414580658298}
+  - component: {fileID: 1236992606}
   m_Layer: 0
   m_Name: BodyPart
   m_TagString: Enemy
@@ -189,6 +190,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &1236992606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212414580658180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212414627720899
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +279,7 @@ GameObject:
   - component: {fileID: 403212414674289921}
   - component: {fileID: 403212414674289922}
   - component: {fileID: 403212414674289923}
+  - component: {fileID: 1018311931}
   m_Layer: 0
   m_Name: BodyPart (8)
   m_TagString: Enemy
@@ -439,6 +455,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &1018311931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212414674289933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212414674852522
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +483,7 @@ GameObject:
   - component: {fileID: 403212414674852526}
   - component: {fileID: 403212414674852527}
   - component: {fileID: 403212414674852512}
+  - component: {fileID: 693264908}
   m_Layer: 0
   m_Name: BodyPart (2)
   m_TagString: Enemy
@@ -628,6 +659,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &693264908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212414674852522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212415036221699
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,8 +757,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.04761505
-        value: 0.12778473
+        time: 0.05261612
+        value: 0.20555878
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -721,8 +766,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.3158741
-        value: 0.11111069
+        time: 0.32087898
+        value: 0.21111679
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -739,8 +784,26 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.889717
-        value: 0.14166462
+        time: 0.79324895
+        value: 0.2780461
+        inSlope: 0.69963336
+        outSlope: 0.69963336
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.89972675
+        value: 0.09721577
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.9825
+        value: 0.11111111
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -848,6 +911,7 @@ GameObject:
   - component: {fileID: 403212415217948810}
   - component: {fileID: 403212415217948811}
   - component: {fileID: 403212415217948812}
+  - component: {fileID: 2100141684}
   m_Layer: 0
   m_Name: BodyPart (6)
   m_TagString: Enemy
@@ -1023,6 +1087,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &2100141684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212415217948822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212415485667482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1115,7 @@ GameObject:
   - component: {fileID: 403212415485667486}
   - component: {fileID: 403212415485667487}
   - component: {fileID: 403212415485667472}
+  - component: {fileID: 1091176249}
   m_Layer: 0
   m_Name: BodyPart (3)
   m_TagString: Enemy
@@ -1212,6 +1291,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &1091176249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212415485667482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212415637210758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1319,7 @@ GameObject:
   - component: {fileID: 403212415637210874}
   - component: {fileID: 403212415637210875}
   - component: {fileID: 403212415637210876}
+  - component: {fileID: 566132600}
   m_Layer: 0
   m_Name: BodyPart (1)
   m_TagString: Enemy
@@ -1401,6 +1495,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &566132600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212415637210758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212415979798574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1523,7 @@ GameObject:
   - component: {fileID: 403212415979798562}
   - component: {fileID: 403212415979798563}
   - component: {fileID: 403212415979798564}
+  - component: {fileID: 1140334968}
   m_Layer: 0
   m_Name: BodyPart (5)
   m_TagString: Enemy
@@ -1590,6 +1699,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &1140334968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212415979798574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212416019527476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1727,7 @@ GameObject:
   - component: {fileID: 403212416019527464}
   - component: {fileID: 403212416019527465}
   - component: {fileID: 403212416019527466}
+  - component: {fileID: 308294866}
   m_Layer: 0
   m_Name: BodyPart (9)
   m_TagString: Enemy
@@ -1779,6 +1903,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &308294866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212416019527476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212416051561637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,6 +1931,7 @@ GameObject:
   - component: {fileID: 403212416051561625}
   - component: {fileID: 403212416051561626}
   - component: {fileID: 403212416051561627}
+  - component: {fileID: 712164999}
   m_Layer: 0
   m_Name: BodyPart (4)
   m_TagString: Enemy
@@ -1968,6 +2107,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &712164999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212416051561637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212416096504531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +2135,7 @@ GameObject:
   - component: {fileID: 403212416096504535}
   - component: {fileID: 403212416096504520}
   - component: {fileID: 403212416096504521}
+  - component: {fileID: 2022397965}
   m_Layer: 0
   m_Name: BodyPart (7)
   m_TagString: Enemy
@@ -2157,6 +2311,20 @@ MonoBehaviour:
   damageOnCollision: 0
   damageOnTrigger: 1
   _particles: {fileID: 5607235712679031757, guid: 70fc45aeaa1918c459ee79a9eb62a38c, type: 3}
+--- !u!114 &2022397965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212416096504531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dffd67638150044ad74e9665d99000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 2457575350352983460, guid: d837329e83a828e45ac3a4c2da3ac453, type: 3}
+  hit: 0
 --- !u!1 &403212416276737136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,6 +2335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 403212416276737137}
   - component: {fileID: 98074160}
+  - component: {fileID: 377955073565731402}
   m_Layer: 0
   m_Name: BossFlameSerpent
   m_TagString: Enemy
@@ -2233,6 +2402,19 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &377955073565731402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403212416276737136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d55e44702ccc248b79a44022e3f99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particles: {fileID: 0}
 --- !u!1 &403212416364455877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,8 +2443,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403212416364455877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.82, y: 2.33, z: 0}
-  m_LocalScale: {x: -1.64, y: 2.68, z: 1}
+  m_LocalPosition: {x: 3.23, y: -5.26, z: 0}
+  m_LocalScale: {x: 2.944293, y: 3.5787451, z: 1}
   m_Children:
   - {fileID: 403212415036221700}
   m_Father: {fileID: 403212416276737137}

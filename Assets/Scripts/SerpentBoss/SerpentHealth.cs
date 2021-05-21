@@ -9,7 +9,7 @@ public class SerpentHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = FindObjectsOfType<SerpentHitBox>();
+        health = GetComponentsInChildren<SerpentHitBox>();
     }
 
     public void HealthCheck()
@@ -21,7 +21,8 @@ public class SerpentHealth : MonoBehaviour
         }
         _particles.transform.position = gameObject.transform.position;
         _particles.Play();
-        FindObjectOfType<SerpentBehaviourManager>().SetState(SerpentBehaviourManager.SerpentState.Wait);
-        GameManager.instance.OpenWin();
+        FindObjectOfType<SperpentSpawner>().KillSperp();
+        gameObject.SetActive(false);
+
     }
 }

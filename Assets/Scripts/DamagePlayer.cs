@@ -11,6 +11,8 @@ public class DamagePlayer : MonoBehaviour
     [SerializeField]
     ParticleSystem _particles;
 
+    float knockBack = 1.0f;
+
     private void Start()
     {
         ParticleSystem[] parsys = FindObjectsOfType<ParticleSystem>();
@@ -34,6 +36,11 @@ public class DamagePlayer : MonoBehaviour
                 pLife.PlayerLifeDecrease();
                 _particles.gameObject.transform.position = collision.gameObject.transform.position;
                 _particles.Play();
+
+                Rigidbody2D pBody = pLife.gameObject.GetComponent<Rigidbody2D>();
+                Vector2 difference = pBody.transform.position - transform.position;
+                difference = difference.normalized * knockBack;
+                pBody.position += difference;
             }
         }
     }
@@ -50,8 +57,10 @@ public class DamagePlayer : MonoBehaviour
                 _particles.gameObject.transform.position = collision.gameObject.transform.position;
                 _particles.Play();
 
-                Vector2 difference = pLife.gameObject.GetComponent<Rigidbody2D>().transform.position - transform.position;
-
+                Rigidbody2D pBody = pLife.gameObject.GetComponent<Rigidbody2D>();
+                Vector2 difference = pBody.transform.position - transform.position;
+                difference = difference.normalized * knockBack;
+                pBody.position += difference;
             }
         }
     }

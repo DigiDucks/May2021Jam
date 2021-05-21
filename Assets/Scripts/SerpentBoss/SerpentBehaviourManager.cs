@@ -28,7 +28,8 @@ public class SerpentBehaviourManager : MonoBehaviour
     SerpentState currentState = SerpentState.Tunnel;
     TunnelState tunnelState = TunnelState.Search;
 
-    public Transform targetTransform;
+    [SerializeField]
+    Transform targetTransform;
 
     [SerializeField]
     float moveSpeed = 5f;
@@ -81,6 +82,7 @@ public class SerpentBehaviourManager : MonoBehaviour
                     case TunnelState.Search:
                         RandomizeTarget();
                         targetTransform = Tunnels[currentTunnel][Random.Range(0, 3)];
+                        head.gameObject.GetComponent<RotateToTarget>().SetTarget(targetTransform);
                         tunnelState = TunnelState.Attack;
                         break;
                     case TunnelState.Teleport:
