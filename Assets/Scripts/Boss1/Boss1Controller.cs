@@ -23,8 +23,10 @@ public class Boss1Controller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(health <= 0)
+        healthText.text = "Boss Health: " + health.ToString();
+        if (health <= 0)
         {
+            healthText.text = "Boss Health: 0";
             _particles.transform.position = gameObject.transform.position;
             _particles.Play();
             GameManager gm = FindObjectOfType<GameManager>();
@@ -36,7 +38,6 @@ public class Boss1Controller : MonoBehaviour
             myRigidbody.rotation += 0.3f;
         }
 
-        healthText.text = "Boss Health: " + health.ToString();
         StartCoroutine(PhaseChange());
         if (phase == 0)
         {

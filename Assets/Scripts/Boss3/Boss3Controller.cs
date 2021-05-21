@@ -25,8 +25,11 @@ public class Boss3Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthText.text = "Boss Health: " + health.ToString();
         if (health <= 0)
         {
+            healthText.text = "Boss Health: 0" ;
+
             _particles.transform.position = gameObject.transform.position;
             _particles.Play();
             GameManager end = FindObjectOfType<GameManager>();
@@ -65,7 +68,6 @@ public class Boss3Controller : MonoBehaviour
             }
         }
 
-        healthText.text = "Boss Health: " + health.ToString();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
