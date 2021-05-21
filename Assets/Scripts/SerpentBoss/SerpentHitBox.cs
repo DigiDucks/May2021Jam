@@ -24,13 +24,13 @@ public class SerpentHitBox : MonoBehaviour
         if(collision.gameObject.CompareTag("Sword"))
         {
             hit = true;
-            FindObjectOfType<SerpentHealth>().HealthCheck();
             GetComponent<Collider2D>().enabled = false;
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<DamagePlayer>().enabled = false;
             GetComponent<Light2D>().enabled = false;
             ParticleSystem _particles = Instantiate(particlePrefab, gameObject.transform.position, Quaternion.identity);
             _particles.Play();
+            FindObjectOfType<SerpentHealth>().HealthCheck();
         }
     }
 }
