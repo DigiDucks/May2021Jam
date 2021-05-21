@@ -5,7 +5,7 @@ using UnityEngine;
 public class SerpentBehaviourManager : MonoBehaviour
 {
 
-    enum SerpentState
+    public enum SerpentState
     {
         Tunnel,
         Bounce,
@@ -117,6 +117,11 @@ public class SerpentBehaviourManager : MonoBehaviour
             RandomizeTarget();
         else
             currentTunnel = nextTunnel;
+    }
+
+    public void SetState(SerpentState state)
+    {
+        currentState = state;
     }
 
     IEnumerator StateWait()

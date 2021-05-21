@@ -18,6 +18,7 @@ public class SerpentHealth : MonoBehaviour
             if (!box.hit)
                 return;
         }
+        FindObjectOfType<SerpentBehaviourManager>().SetState(SerpentBehaviourManager.SerpentState.Wait);
         GameManager.instance.OpenWin();
     }
 }

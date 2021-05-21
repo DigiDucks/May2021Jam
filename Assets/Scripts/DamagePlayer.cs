@@ -30,7 +30,8 @@ public class DamagePlayer : MonoBehaviour
             if (collision.gameObject.GetComponent<PlayerLife>().CanPlayerBeHit())
             {
                 StartCoroutine(InvFrames(collision));
-                collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+                PlayerLife pLife = collision.gameObject.GetComponent<PlayerLife>();
+                pLife.PlayerLifeDecrease();
                 _particles.gameObject.transform.position = collision.gameObject.transform.position;
                 _particles.Play();
             }
@@ -44,9 +45,13 @@ public class DamagePlayer : MonoBehaviour
             if (collision.gameObject.GetComponent<PlayerLife>().CanPlayerBeHit())
             {
                 StartCoroutine(InvFrames(collision));
-                collision.gameObject.GetComponent<PlayerLife>().PlayerLifeDecrease();
+                PlayerLife pLife = collision.gameObject.GetComponent<PlayerLife>();
+                pLife.PlayerLifeDecrease();
                 _particles.gameObject.transform.position = collision.gameObject.transform.position;
                 _particles.Play();
+
+                Vector2 difference = pLife.gameObject.GetComponent<Rigidbody2D>().transform.position - transform.position;
+
             }
         }
     }
