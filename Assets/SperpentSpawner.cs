@@ -41,11 +41,11 @@ public class SperpentSpawner : MonoBehaviour
     public void KillSperp()
     {
         --numSperp;
-        if (numSperp == 10)
+        if (numSperp == 9)
             phase = 1;
-        if (numSperp == 8)
+        if (numSperp == 7)
             phase = 2;
-        if (numSperp == 5)
+        if (numSperp == 4)
             phase = 3;
         if (numSperp <= 0)
             GameManager.instance.OpenWin();
@@ -76,7 +76,5 @@ public class SperpentSpawner : MonoBehaviour
         sperpents[8].gameObject.SetActive(true);
         yield return new WaitForEndOfFrame();
         sperpents[9].gameObject.SetActive(true);
-        yield return new WaitForEndOfFrame();
-        sperpents[10].gameObject.SetActive(true);
     }
 }

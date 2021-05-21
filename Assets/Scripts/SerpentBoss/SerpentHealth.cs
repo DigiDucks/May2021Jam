@@ -5,6 +5,8 @@ using UnityEngine;
 public class SerpentHealth : MonoBehaviour
 {
     [SerializeField] ParticleSystem _particles;
+
+    [SerializeField]
     SerpentHitBox[] health;
     // Start is called before the first frame update
     void Start()
