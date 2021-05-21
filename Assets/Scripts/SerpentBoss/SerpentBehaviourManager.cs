@@ -50,7 +50,7 @@ public class SerpentBehaviourManager : MonoBehaviour
         Tunnels[1] = eastTunnles;
         Tunnels[2] = southTunnles;
         Tunnels[3] = westTunnles;
-        serpentBody = FindObjectOfType<SerpentBody>();
+        serpentBody = GetComponentInChildren<SerpentBody>();
         head = serpentBody.gameObject.transform.parent.transform;
 
         tunnelState = TunnelState.Teleport;
