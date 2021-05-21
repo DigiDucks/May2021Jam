@@ -10,15 +10,23 @@ public class PlayerLife : MonoBehaviour
 
     bool canBeHit = true;                   // Variable for I-Frames
 
+    SpriteRenderer _rend;
+
     // Start is called before the first frame update
     void Start()
     {
         healthText.text = "HP: " + health.ToString();
+        _rend = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            canBeHit = !canBeHit;
+            _rend.color = Color.red;
+        }
         if (health <= 0)
         {
             Destroy(gameObject);

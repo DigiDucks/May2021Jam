@@ -2415,6 +2415,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particles: {fileID: 0}
+  health:
+  - {fileID: 1236992606}
+  - {fileID: 566132600}
+  - {fileID: 693264908}
+  - {fileID: 1091176249}
+  - {fileID: 712164999}
+  - {fileID: 1140334968}
+  - {fileID: 2100141684}
+  - {fileID: 2022397965}
+  - {fileID: 1018311931}
+  - {fileID: 308294866}
 --- !u!1 &403212416364455877
 GameObject:
   m_ObjectHideFlags: 0

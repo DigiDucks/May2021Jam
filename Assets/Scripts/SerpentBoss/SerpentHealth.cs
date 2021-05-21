@@ -7,24 +7,21 @@ public class SerpentHealth : MonoBehaviour
     [SerializeField] ParticleSystem _particles;
 
     [SerializeField]
-    SerpentHitBox[] health;
+    int health = 10;
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        health = GetComponentsInChildren<SerpentHitBox>();
     }
 
     public void HealthCheck()
     {
-        foreach(SerpentHitBox box in health)
+        --health;
+        if (health <= 0)
         {
-            if (!box.hit)
-                return;
+            _particles.transform.position = gameObject.transform.position;
+            _particles.Play();
+            FindObjectOfType<SperpentSpawner>().KillSperp();
+            gameObject.SetActive(false);
         }
-        _particles.transform.position = gameObject.transform.position;
-        _particles.Play();
-        FindObjectOfType<SperpentSpawner>().KillSperp();
-        gameObject.SetActive(false);
-
     }
 }
