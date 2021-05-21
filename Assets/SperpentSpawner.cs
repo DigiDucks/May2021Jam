@@ -11,6 +11,7 @@ public class SperpentSpawner : MonoBehaviour
     int phase;
 
     int numSperp;
+    WaitForSeconds buffer =new WaitForSeconds(0.5f);
     // Start is called before the first frame update
     void Start()
     {
@@ -54,27 +55,27 @@ public class SperpentSpawner : MonoBehaviour
     IEnumerator Phase1()
     {
         sperpents[1].gameObject.SetActive(true);
-        yield return new WaitForEndOfFrame();
+        yield return buffer;
         sperpents[2].gameObject.SetActive(true);
-        yield return new WaitForEndOfFrame();
+        yield return buffer;
         sperpents[3].gameObject.SetActive(true);
     }
 
     IEnumerator Phase2()
     {
         sperpents[4].gameObject.SetActive(true);
-        yield return new WaitForEndOfFrame();
+        yield return buffer;
         sperpents[5].gameObject.SetActive(true);
     }
 
     IEnumerator Phase3()
     {
         sperpents[6].gameObject.SetActive(true);
-        yield return new WaitForEndOfFrame();
+        yield return buffer;
         sperpents[7].gameObject.SetActive(true);
-        yield return new WaitForEndOfFrame();
+        yield return buffer;
         sperpents[8].gameObject.SetActive(true);
-        yield return new WaitForEndOfFrame();
+        yield return buffer;
         sperpents[9].gameObject.SetActive(true);
     }
 }
